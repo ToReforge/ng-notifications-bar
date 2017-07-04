@@ -159,7 +159,9 @@ app.config(['notificationsConfigProvider'], function (notificationsConfigProvide
 	// delay between animation and removing the nofitication
 	notificationsConfigProvider.setAutoHideAnimationDelay(1200);
 	
-}])
+	//Limit the amount on-screen nofitications 
+	notificationsConfigProvider.setAutoMaxNotifications(3);
+}]);
 ```
 
 
@@ -171,7 +173,8 @@ app.controller('main', function ($scope, notifications) {
 		notifications.showError({
 			message: 'Oops! Something bad just happened! (hides faster)',
 			hideDelay: 1500, //ms
-			hide: true //bool
+			hide: true, //bool,
+			class: 'my-own-class'
 		});
 	};
 });

@@ -14,7 +14,11 @@ body {
   z-index: 1000;
 }
 /* line 14, ../sass/ngNotificationsBar.scss */
-.notifications .notification, .notifications .error, .notifications .success, .notifications .warning, .notifications .info {
+.notifications .notifications-container .glyphicon:focus, .notifications .notifications-container .glyphicon:hover, .notifications .notifications-container .glyphicon:active {
+  outline: none;
+}
+/* line 20, ../sass/ngNotificationsBar.scss */
+.notifications .notification {
   position: relative;
   -webkit-animation: fadeInDown 1s ease 0.2s 1 both;
   -moz-animation: fadeInDown 1s ease 0.2s 1 both;
@@ -70,34 +74,49 @@ body {
     transform: translateY(0);
   }
 }
-/* line 22, ../sass/ngNotificationsBar.scss */
+/* line 27, ../sass/ngNotificationsBar.scss */
+.notifications .notification.note-close {
+  animation-name: fadeOutAnimation;
+  animation-duration: 2s;
+  animation-fill-mode: forwards;
+}
+/* line 34, ../sass/ngNotificationsBar.scss */
 .notifications .message {
   padding: 0 12px;
 }
-/* line 26, ../sass/ngNotificationsBar.scss */
+/* line 38, ../sass/ngNotificationsBar.scss */
 .notifications .error {
   background-color: #F64747;
   border-bottom: 1px solid #f31515;
 }
-/* line 32, ../sass/ngNotificationsBar.scss */
+/* line 43, ../sass/ngNotificationsBar.scss */
 .notifications .success {
   background-color: #03C9A9;
   border-bottom: 1px solid #02aa8f;
 }
-/* line 38, ../sass/ngNotificationsBar.scss */
+/* line 49, ../sass/ngNotificationsBar.scss */
 .notifications .warning {
   background-color: #F7CA18;
   border-bottom: 1px solid #e7ba08;
 }
-/* line 44, ../sass/ngNotificationsBar.scss */
+/* line 54, ../sass/ngNotificationsBar.scss */
 .notifications .info {
   background-color: #0c6997;
   border-bottom: 1px solid #0c6997;
 }
-/* line 50, ../sass/ngNotificationsBar.scss */
+/* line 59, ../sass/ngNotificationsBar.scss */
 .notifications .close-click {
-  font-size: inherit;
+  font-size: 12px;
   cursor: pointer;
   padding: 10px;
   margin: 0 auto;
+}
+
+@keyframes fadeOutAnimation {
+  from {
+    opacity: 1;
+  }
+  to {
+    opacity: 0;
+  }
 }
