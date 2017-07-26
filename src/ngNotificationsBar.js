@@ -223,8 +223,9 @@
 				scope.close = function (index) {
 					notifications[index].close = true;
 
-					$timeout(function () {
+					var timerClose = $timeout(function () {
 						notifications.splice(index, 1);
+						$timeout.cancel(timerClose);
 					}, autoHideAnimationDelay);
 				};
 			}
